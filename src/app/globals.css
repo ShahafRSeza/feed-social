@@ -1,42 +1,1076 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&display=swap');
 
 * {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+
+:root {
+  --black: black;
+  --white: white;
+  --grey: #f2f2f2;
+  --red: #f43302;
+  --yellow: #f7ff00;
+}
+
+h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
 }
 
 a {
-  color: inherit;
+  color: var(--black);
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+a:hover {
+  color: var(--red);
+  text-decoration: line-through;
+}
+
+body {
+  background-color: var(--grey);
+}
+
+.container {
+  background-color: var(--white);
+  margin: 0 auto;
+  max-width: 700px !important;
+  overflow: hidden;
+  min-height: 100vh;
+  padding: 20px;
+  border-left: 3px solid var(--black);
+  border-right: 3px solid var(--black);
+}
+
+nav {
+  border-bottom: 4px solid var(--black);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav .navigation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-transform: uppercase;
+}
+
+nav .navigation p {
+  font-weight: 700;
+  font-size: 11pt;
+  font-family: "Inter", sans-serif;
+}
+
+nav .user {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11pt;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.createPost {
+  border: 2px solid var(--black);
+  box-shadow: 5px 5px var(--black);
+  font-size: 11pt;
+  margin-bottom: 20px;
+}
+
+.createPost .head {
+  padding: 8px;
+  font-weight: bold;
+  color: var(--white);
+  text-transform: uppercase;
+  background-color: var(--red);
+}
+
+.createPost .body {
+  padding: 8px;
+}
+
+.createPost textarea {
+  border: none;
+  outline: none;
+  background-color: var(--grey);
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 4px;
+  min-height: 20px;
+}
+
+.createPost .postBtn {
+  background-color: var(--black);
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 10px 20px;
+  width: 70%;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.postBtn:hover {
+  background-color: var(--red);
+}
+
+.followBtn:hover {
+  background-color: var(--black);
+}
+
+.createPost .resetBtn {
+  background-color: var(--white);
+  border: none;
+  outline: none;
+  color: var(--black);
+  padding: 10px 20px;
+  width: 27%;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.resetBtn {
+  background-color: var(--white);
+  border: none;
+  outline: none;
+  color: var(--black);
+  padding: 10px 20px;
+  width: 27%;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.resetBtn:hover {
+  color: var(--red);
+  text-decoration: line-through;
+}
+
+.post {
+  border: 2px solid var(--black);
+  box-shadow: 5px 5px var(--black);
+  font-size: 9pt;
+  margin-bottom: 20px;
+}
+
+.postHead {
+  display: flex;
+  padding: 8px;
+  padding-bottom: 4px;
+}
+
+.post .avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.userDetails {
+  margin-left: 8px;
+  font-size: 12pt;
+  font-weight: normal;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  text-transform: lowercase;
+}
+
+.userDetails p {
+  line-height: 0;
+}
+
+.userDetails .userName {
+  font-weight: 900;
+  display: block;
+}
+
+.userDetails span {
+  font-size: 8pt;
+  color: grey;
+  display: block;
+}
+
+.postBody {
+  padding: 8px;
+  padding-top: 4px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.postBody strong {
+  font-weight: 800;
+  color: var(--black);
+}
+
+.postBody em {
+  font-style: italic;
+}
+
+.postBody a {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+.postBody a:hover {
+  color: var(--red);
+  text-decoration: line-through;
+}
+
+.postBody strike, .postBody s {
+  text-decoration: line-through;
+}
+
+.postBody ul, .postBody ol {
+  margin-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.postBody li {
+  margin-bottom: 2px;
+}
+
+.postBody blockquote {
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 3px solid var(--black);
+}
+
+.postBody a.mention {
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.postBody a.mention:hover {
+  text-decoration: underline;
+  color: var(--red);
+}
+
+.userProfileCard {
+  padding: 8px;
+  border: 2px solid var(--black);
+  box-shadow: 5px 5px var(--black);
+  font-size: 11pt;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.userProfileCard img.profileAvatar {
+  width: 140px;
+  border-radius: 10px;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+.userProfileCard .statsRow {
+  display: flex;
+  gap: 20px;
+}
+
+.userProfileCard .statsRow .number {
+  font-size: 16pt;
+  font-weight: 800;
+  color: var(--red);
+}
+
+.userProfileCard > div.content,
+.userProfileCard > div.actions {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.userProfileCard .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.userProfileCard .content h3 {
+  color: grey;
+  font-size: 12pt;
+  font-weight: normal;
+}
+
+.userProfileCard .statsRow {
+  margin-top: auto;
+}
+
+.followBtn {
+  background-color: var(--red);
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+  min-width: 70%;
+  cursor: pointer;
+  display: block;
+  font-family: "Roboto Mono", monospace;
+}
+
+.profileActions {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.editBtn {
+  background-color: var(--red);
+  border: none;
+  outline: none;
+  color: var(--white);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+  width: 45%;
+  cursor: pointer;
+  display: block;
+  font-family: "Roboto Mono", monospace;
+}
+
+.logoutBtn {
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  outline: none;
+  color: var(--black);
+  padding: 8px 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+  display: block;
+  width: 45%;
+  font-family: "Roboto Mono", monospace;
+}
+
+
+.unfollowBtn {
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  outline: none;
+  color: var(--black);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: 800;
+  cursor: pointer;
+  display: block;
+  font-family: "Roboto Mono", monospace;
+}
+
+.unfollowBtn:hover {
+  color: var(--red);
+  text-decoration: line-through;
+}
+
+@media (max-width: 768px) {
+  .followBtn, .unfollowBtn {
+    order: 2;
   }
+
+  .statsRow {
+    order: 3;
+  }
+}
+
+.title {
+  padding: 10px;
+  background-color: var(--black);
+  color: var(--white);
+  width: fit-content;
+}
+
+.divTitle {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divTitle a {
+  font-size: 9pt;
+}
+
+.box {
+  border: 2px solid var(--black);
+  box-shadow: 5px 5px var(--black);
+  display: flex;
+  gap: 7px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.box .boxUser img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 4px;
+  transition: all 0.1s ease;
+}
+
+.box .boxUser a img:hover {
+  box-shadow: 4px 4px var(--red);
+}
+
+
+.box .boxUser {
+  padding: 10px 0;
+  display: flex;
+  align-items: start;
+  align-content: center;
+  text-align: center;
+}
+
+.box .boxUserDetails {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  width: 80px;
+}
+
+.box .boxUserDetails a {
+  font-size: 8pt;
+  line-height: 1;
+}
+
+.box .boxUserDetails p {
+  font-weight: normal;
+  line-height: 1.2;
+  display: block;
+  text-transform: capitalize;
+}
+
+.box .boxUserDetails p span {
+  font-size: 8pt;
+  color: gray;
+  display: block;
+  text-transform: lowercase;
+}
+
+.box .boxUserDetails p:first-of-type {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .desktop {
+    display: none !important;
+  }
+
+  .mobile {
+    display: block;
+  }
+}
+
+/* ─── Editor Toolbar ─── */
+.editorToolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  background-color: var(--grey);
+  border-bottom: 2px solid var(--black);
+  flex-wrap: wrap;
+}
+
+.tbGroup {
+  position: relative;
+}
+
+.tbBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  cursor: pointer;
+  font-size: 12px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  min-width: 30px;
+  height: 28px;
+  transition: background-color 0.1s;
+}
+
+.tbBtn:hover {
+  background-color: var(--yellow);
+}
+
+.tbBtn:active {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.tbBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tbBold { font-weight: 900; }
+.tbItalic { font-style: italic; font-weight: 400; }
+.tbStrike { text-decoration: line-through; }
+.tbGif { font-size: 10px; letter-spacing: -0.5px; }
+
+.tbSep {
+  width: 1px;
+  height: 18px;
+  background-color: #ccc;
+  margin: 0 3px;
+  flex-shrink: 0;
+}
+
+.tbUploading {
+  background-color: var(--yellow);
+  min-width: 42px;
+  font-size: 10px;
+}
+
+.tbProgress {
+  font-weight: 800;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.colorIcon {
+  background: linear-gradient(135deg, #f43302, #2563eb, #16a34a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+}
+
+/* ─── Dropdowns ─── */
+.tbDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  box-shadow: 3px 3px var(--black);
+  min-width: 160px;
+  margin-top: 2px;
+}
+
+.tbDropItem {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--grey);
+  cursor: pointer;
+  font-size: 12px;
+  text-align: left;
+  font-family: "Roboto Mono", monospace;
+}
+
+.tbDropItem:last-child {
+  border-bottom: none;
+}
+
+.tbDropItem:hover {
+  background-color: var(--yellow);
+}
+
+.fontDropdown {
+  min-width: 200px;
+}
+
+.fontDropdown .tbDropItem {
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+/* ─── Color Picker ─── */
+.colorDropdown {
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  min-width: auto;
+  flex-wrap: wrap;
+}
+
+.colorSwatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--black);
+  cursor: pointer;
+  transition: transform 0.1s;
+  padding: 0;
+}
+
+.colorSwatch:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 2px var(--yellow);
+}
+
+/* ─── Panels (Link, GIF) ─── */
+.tbPanel {
+  padding: 8px;
+  background-color: var(--grey);
+  border-bottom: 2px solid var(--black);
+}
+
+.tbInput {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--black);
+  background-color: var(--white);
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  margin-bottom: 4px;
+  outline: none;
+}
+
+.tbInput:focus {
+  border-color: var(--red);
+}
+
+.tbError {
+  color: var(--red);
+  font-size: 10px;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.tbPanelActions {
+  display: flex;
+  gap: 4px;
+}
+
+.tbPanelBtn {
+  padding: 4px 10px;
+  border: 1px solid var(--black);
+  background-color: var(--white);
+  cursor: pointer;
+  font-size: 10px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tbPanelBtn:hover {
+  background-color: var(--yellow);
+}
+
+.tbPanelPrimary {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.tbPanelPrimary:hover {
+  background-color: var(--red);
+}
+
+/* ─── GIF Picker ─── */
+.gifGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.gifItem {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  transition: border-color 0.1s;
+}
+
+.gifItem:hover {
+  border-color: var(--red);
+}
+
+.gifMsg {
+  padding: 8px;
+  color: #999;
+  font-size: 10px;
+  grid-column: 1 / -1;
+}
+
+/* ─── @Mention Dropdown ─── */
+.mentionDropdown {
+  position: absolute;
+  z-index: 200;
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  box-shadow: 3px 3px var(--black);
+  min-width: 220px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.mentionItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--grey);
+}
+
+.mentionItem:last-child {
+  border-bottom: none;
+}
+
+.mentionActive,
+.mentionItem:hover {
+  background-color: var(--yellow);
+}
+
+.mentionAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.mentionAvatarEmpty {
+  background-color: var(--grey);
+  border: 1px solid #ddd;
+}
+
+.mentionName {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.mentionUsername {
+  display: block;
+  font-size: 9px;
+  color: grey;
+}
+
+/* ─── Mention links (editor + posts) ─── */
+.mention {
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mention:hover {
+  text-decoration: underline;
+  color: var(--red);
+}
+
+/* ─── Legacy formatToolbar (used by PostCard edit) ─── */
+.formatToolbar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+  padding: 4px;
+  background-color: var(--grey);
+  border-bottom: 2px solid var(--black);
+}
+
+.formatToolbar button {
+  padding: 4px 8px;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  cursor: pointer;
+  font-size: 11px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.formatToolbar button:hover {
+  background-color: var(--yellow);
+}
+
+.formatToolbar button:active {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.avatarUploadLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.avatarUploadOverlay {
+  display: block;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  font-size: 9pt;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 0;
+  border-radius: 0 0 10px 10px;
+}
+
+.avatarUploadOverlay:hover {
+  background-color: var(--red);
+}
+
+.editProfileForm {
+  border: 2px solid var(--black);
+  box-shadow: 5px 5px var(--black);
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.editField {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.editLabel {
+  display: block;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 9pt;
+  margin-bottom: 4px;
+}
+
+.editField input,
+.editField textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: var(--grey);
+  font-family: "Roboto Mono", monospace;
+  font-size: 10pt;
+}
+
+/* Image Modal */
+.imageModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.imageModalContent {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  cursor: default;
+}
+
+/* Post Actions (Edit/Delete) */
+.postHead {
+  position: relative;
+}
+
+.postActions {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  align-items: flex-start;
+  padding-left: 8px;
+}
+
+.postActionBtn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: grey;
+  padding: 2px 4px;
+}
+
+.postActionBtn:hover {
+  color: var(--red);
+}
+
+.postActionDelete:hover {
+  color: var(--red);
+}
+
+.postConfirmDelete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 9pt;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Edit History */
+.editedLabel {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.editedLabel:hover {
+  color: var(--red);
+}
+
+.editHistory {
+  padding: 6px 8px;
+  background-color: var(--grey);
+  border-top: 1px solid #ddd;
+  font-size: 8pt;
+}
+
+.editHistoryTitle {
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.editHistoryEntry {
+  padding: 4px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.editHistoryEntry:last-child {
+  border-bottom: none;
+}
+
+.editHistoryDate {
+  color: grey;
+  font-size: 7pt;
+}
+
+/* Rich Editor (shared by CreatePost & PostCard edit) */
+.richEditor {
+  border: none;
+  outline: none;
+  background-color: var(--grey);
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 4px;
+  min-height: 60px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 11pt;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.richEditor b, .richEditor strong {
+  font-weight: 800;
+}
+
+.richEditor i, .richEditor em {
+  font-style: italic;
+}
+
+.richEditor strike, .richEditor s {
+  text-decoration: line-through;
+}
+
+.richEditor a {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+.richEditor a:hover {
+  color: var(--red);
+}
+
+.richEditor a.mention {
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.richEditor a.mention:hover {
+  text-decoration: underline;
+}
+
+.richEditor ul, .richEditor ol {
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+.richEditor li {
+  margin-bottom: 2px;
+}
+
+.richEditor blockquote {
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 3px solid var(--black);
+}
+
+.postImg {
+  width: 100%;
+}
+
+.richEditor img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 8px;
+  display: block;
+}
+
+.editorPlaceholder {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #999;
+  pointer-events: none;
+  font-family: "Roboto Mono", monospace;
+  font-size: 11pt;
+}
+
+/* Post Edit Form (legacy textarea fallback) */
+.postEditForm textarea {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  outline: none;
+  background-color: var(--grey);
+  font-family: "Roboto Mono", monospace;
+  font-size: 9pt;
+  margin-bottom: 4px;
+}
+
+.postEditForm .richEditor {
+  font-size: 9pt;
+  min-height: 40px;
 }
