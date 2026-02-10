@@ -76,7 +76,7 @@ function sanitizeHtml(html) {
             if (href.toLowerCase().startsWith("javascript:")) {
               node.setAttribute("href", "#");
             }
-            node.setAttribute("target", "_blank");
+
             node.setAttribute("rel", "noopener noreferrer");
           }
           if ((node.tagName === "SPAN" || node.tagName === "DIV") && node.hasAttribute("style")) {
